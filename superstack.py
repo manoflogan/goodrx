@@ -9,11 +9,10 @@ class SuperStack(object):
     def push(self, k: int) -> int:
         """Inserts entry to the stop of the stack."""
         self.stack.append(k)
-        return k
 
     def pop(self) -> int:
         """Pops the top element from the list"""
-        self.stack.pop()
+        return self.stack.pop()
 
     def inc(self, e: int, k: int) -> None:
         """Adds e to the bottom k elements of the stack."""
