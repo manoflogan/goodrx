@@ -1,0 +1,4 @@
+.DS_Store
+.coverage
+__pycache__
+html_coverage_report/
