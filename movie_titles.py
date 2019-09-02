@@ -11,12 +11,15 @@ MOVIE_TITLE_URI = ('https://jsonmock.hackerrank.com/api/movies/search/?Title={}'
 
 
 def fetch_and_display_movie_titles(title: str) -> typing.List[str]:
+    """Returns a sorted list of movie titles."""
     movie_titles = []
     current_page_number = 1
     max_page_number = -1
     while True:
         response = requests.get(
             MOVIE_TITLE_URI.format(title, current_page_number))
+        if response.status != 200:
+            break
         movie_titles_dict = response.json()
         movie_data_list = movie_titles_dict.get('data', [])
         if not movie_data_list:
@@ -32,7 +35,7 @@ def fetch_and_display_movie_titles(title: str) -> typing.List[str]:
     return sorted(movie_titles)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument('--title',
                         help='Name of the movie to be searched',

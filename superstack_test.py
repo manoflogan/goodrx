@@ -25,6 +25,5 @@ def test_commands_0():
         (stack_object.inc, (2, 2)), (stack_object.push, (4,)),
         (stack_object.pop,), (stack_object.pop,)]
     # Execute the commands
-    for result in run_commands(stack_object, commands):
-        pass
+    run_commands(stack_object, commands)
     assert stack_object.stack == [6, 8]
