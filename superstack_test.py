@@ -1,7 +1,9 @@
 import superstack
+import typing
 
 
-def run_commands(stack, stack_commands):
+def run_commands(stack: typing.List['SuperStack'],
+                 stack_commands: typing.List[tuple]):
     for command in stack_commands:
         if len(command) == 2:
             func, arg = command

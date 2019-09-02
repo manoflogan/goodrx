@@ -49,7 +49,7 @@ def empty_response():
          'data': []}
 
 
-def test_fetch_and_display_movie_titles__success(movie_response):
+def test_fetch_and_display_movie_titles__success(movie_response: dict):
     response_mock = mock.Mock()
     response_mock.status = 200
     response_mock.json = mock.MagicMock(return_value=movie_response)
@@ -76,7 +76,7 @@ def test_fetch_and_display_movie_titles__error_status():
         assert mock_request.call_count == 1
 
 
-def test_fetch_and_display_movie_titles__empty_response(empty_response):
+def test_fetch_and_display_movie_titles__empty_response(empty_response: dict):
     response_mock = mock.Mock()
     response_mock.status = 200
     response_mock.json = mock.MagicMock(return_value=empty_response)
