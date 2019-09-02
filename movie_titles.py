@@ -24,11 +24,12 @@ def fetch_and_display_movie_titles(title: str) -> typing.List[str]:
         movie_data_list = movie_titles_dict.get('data', [])
         if not movie_data_list:
             break
-        movie_titles.extend([movie_dict.get('Title', '')
-                             for movie_dict in movie_data_list])
+        movie_titles.extend([movie_dict.get('Title')
+                             for movie_dict in movie_data_list
+                             if movie_dict.get('Title')])
 
         max_page_number = max(max_page_number,
-                              movie_titles_dict.get('total_pages'))
+                              movie_titles_dict.get('total_pages', 0))
         current_page_number += 1
         if current_page_number > max_page_number:
             break
